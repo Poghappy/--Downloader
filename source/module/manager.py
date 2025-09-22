@@ -97,7 +97,7 @@ class Manager:
                 "referer": "https://www.xiaohongshu.com/",
             },
             timeout=timeout,
-            verify=False,
+            verify=True,
             follow_redirects=True,
             mounts={
                 "http://": AsyncHTTPTransport(proxy=self.proxy),
@@ -107,7 +107,7 @@ class Manager:
         self.download_client = AsyncClient(
             headers=self.blank_headers,
             timeout=timeout,
-            verify=False,
+            verify=True,
             follow_redirects=True,
             mounts={
                 "http://": AsyncHTTPTransport(proxy=self.proxy),
