@@ -100,7 +100,7 @@ class Html:
             headers=headers,
             proxy=proxy,
             follow_redirects=True,
-            verify=False,
+            verify=True,
             timeout=self.timeout,
             **kwargs,
         )
@@ -124,12 +124,12 @@ class Html:
         proxy: str,
         **kwargs,
     ):
-        return get(
+        return await self.client.get(
             url,
             headers=headers,
             proxy=proxy,
             follow_redirects=True,
-            verify=False,
+            verify=True,
             timeout=self.timeout,
             **kwargs,
         )

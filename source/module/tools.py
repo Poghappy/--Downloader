@@ -10,10 +10,12 @@ from .static import INFO
 
 def retry(function):
     async def inner(self, *args, **kwargs):
-        if result := await function(self, *args, **kwargs):
+        result = await function(self, *args, **kwargs)
+        if result:
             return result
         for __ in range(self.retry):
-            if result := await function(self, *args, **kwargs):
+            result = await function(self, *args, **kwargs)
+            if result:
                 return result
         return result
 
